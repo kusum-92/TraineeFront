@@ -1,0 +1,40 @@
+﻿@page
+@model TraineeFront.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create Employee";
+}
+<h1>Create Trainee</h1>
+<form method="post" class="mt-3">
+    <div class="form-group mb-3">
+        <label asp-for="Trainee.Name" class="form-label"></label>
+        <input asp-for="Trainee.Name" class="form-control" placeholder="Enter trainee name" />
+        <span asp-validation-for="Trainee.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Trainee.Email" class="form-label"></label>
+        <input asp-for="Trainee.Email" class="form-control" placeholder="Enter email" />
+        <span asp-validation-for="Trainee.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Trainee.Address" class="form-label"></label>
+        <input asp-for="Trainee.Address" class="form-control" placeholder="Enter address" />
+        <span asp-validation-for="Trainee.Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Trainee.Phone" class="form-label"></label>
+        <input asp-for="Trainee.Phone" class="form-control" placeholder="Enter phone number" />
+        <span asp-validation-for="Trainee.Phone" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-page="TraineeList" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
