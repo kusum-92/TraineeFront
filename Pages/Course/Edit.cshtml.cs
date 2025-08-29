@@ -1,21 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TraineeFront.Service;
 
-namespace TraineeFront.Pages
+namespace TraineeFront.Pages.Course
 {
     public class EditModel : PageModel
     {
-        private readonly TraineeService _service;
-        public EditModel(TraineeService service)
+        private readonly CourseService _service;
+        public EditModel(CourseService service)
         {
             _service = service;
         }
         [BindProperty]
-        public Trainee Trainee { get; set; }
+        public Models.Course Course { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            Trainee=await _service.GetTraineeById(id);
-            if(Trainee == null)
+            Course = await _service.GetCourseById(id);
+            if (Course == null)
             {
                 return NotFound();
             }
@@ -27,8 +28,11 @@ namespace TraineeFront.Pages
             {
                 return Page();
             }
-            await _service.UpdateTrainee(Trainee.Id, Trainee);
-            return RedirectToPage("TraineeList");
+            await _service.UpdateCourse(Course.CourseId, Course);
+            return RedirectToPage("CourseList");
+        }
+        public void OnGet()
+        {
         }
     }
 }

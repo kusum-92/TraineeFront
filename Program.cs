@@ -1,10 +1,12 @@
-using TraineeFront;
+using TraineeFront.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<TraineeService>();
+builder.Services.AddScoped<CourseService>();
+builder.Services.AddScoped<EnrollmentService>();
 builder.Services.AddHttpClient("TraineeAPI", httpclient =>
 {
     httpclient.BaseAddress = new Uri("https://localhost:7086/api/Trainee");

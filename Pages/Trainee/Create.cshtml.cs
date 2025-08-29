@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TraineeFront.Models;
+using TraineeFront.Service;
 
-namespace TraineeFront.Pages
+namespace TraineeFront.Pages.Trainee
 {
     public class CreateModel : PageModel
     {
@@ -11,8 +13,9 @@ namespace TraineeFront.Pages
             _service = service;
         }
         [BindProperty]
-        public Trainee Trainee {  get; set; }
+        public Models.Trainee Trainee {  get; set; }
 
+        
         public void OnGet()
         {
             
@@ -25,7 +28,7 @@ namespace TraineeFront.Pages
             }
 
             await _service.AddTrainee(Trainee);
-            return RedirectToPage("TraineeList"); // Go back to list page
+            return RedirectToPage("List"); // Go back to list page
         }
     }
 }

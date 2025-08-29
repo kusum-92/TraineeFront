@@ -1,0 +1,29 @@
+﻿
+@page
+@model TraineeFront.Pages.Enrollment.CreateModel
+@{
+    ViewData["Title"] = "Create Enrollment";
+}
+
+<h2>Create Enrollment</h2>
+
+<form method="post">
+    <div class="form-group mb-3">
+        <label for="TraineeId">Select Trainee</label>
+        <select asp-for="Enrollment.TraineeId" asp-items="Model.Trainees" class="form-control">
+            <option value="">-- Select Trainee --</option>
+        </select>
+        <span asp-validation-for="Enrollment.TraineeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="CourseId">Select Course</label>
+        <select asp-for="Enrollment.CourseId" asp-items="Model.Courses" class="form-control">
+            <option value="">-- Select Course --</option>
+        </select>
+        <span asp-validation-for="Enrollment.CourseId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enroll</button>
+    <a asp-page="List" class="btn btn-secondary">Cancel</a>
+</form>

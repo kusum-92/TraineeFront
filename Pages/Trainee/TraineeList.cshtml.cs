@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TraineeFront.Models;
+using TraineeFront.Service;
 
-namespace TraineeFront.Pages
+namespace TraineeFront.Pages.Trainee
 {
     public class TraineeListModel : PageModel
 
@@ -11,7 +13,7 @@ namespace TraineeFront.Pages
         {
             _service = service;
         }
-        public Task<List<Trainee>> TraineeList { get; set; } 
+        public Task<List<Models.Trainee>> TraineeList { get; set; } 
         public void OnGet()
         {
             TraineeList = _service.GetTrainees();

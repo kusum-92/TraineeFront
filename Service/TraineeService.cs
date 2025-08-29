@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
-namespace TraineeFront
+using TraineeFront.Models;
+namespace TraineeFront.Service
 {
     public class TraineeService
     {

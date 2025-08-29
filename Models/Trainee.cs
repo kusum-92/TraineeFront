@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace TraineeFront
+namespace TraineeFront.Models
 {
     public record class Trainee(
     [property: JsonPropertyName("id")] int Id,

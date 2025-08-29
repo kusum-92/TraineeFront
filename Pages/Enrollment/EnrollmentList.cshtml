@@ -1,0 +1,35 @@
+﻿@page
+@model TraineeFront.Pages.Enrollment.EnrollmentListModel
+@{
+    ViewData["Title"] = "Enrollment";
+}
+<h2>Enrollments</h2>
+<div class="table mb-3">
+    <a asp-page="Create" class="btn btn-primary">Add Enrollment</a>
+</div>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Trainee Name</th>
+            <th>Course Name</th>   
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model.Enrollments)
+        {
+            <tr>
+                <td>@e.TraineeName</td>
+                <td>@e.CourseName</td>
+            
+        <td>
+            <form method="post" asp-page-handler="Delete" asp-route-id="@e.EnrollmentId">
+                        <button class="btn btn-danger">Delete</button>
+             </form>
+            
+            <a asp-page="Edit" asp-route-id="@e.EnrollmentId" class="btn btn-warning btn-sm">Edit</a>
+
+        </td>
+        </tr>
+        }
+    </tbody>
+</table>
